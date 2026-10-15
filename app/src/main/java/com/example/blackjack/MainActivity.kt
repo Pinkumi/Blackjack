@@ -271,12 +271,12 @@ fun VentanaInicio(onCerrar: () -> Unit, onIniciar: (String, Int) -> Unit) {
 @Composable
 fun InstruccionesScreen(onSalir: () -> Unit) {
     val instrucciones = listOf(
-        "1.- El objetivo es acercarse al número elegido sin pasarse.",
-        "2.- Las cartas del 2 al 10 valen su número. J, Q y K valen 10. El As vale 1 u 11.",
-        "3.- El jugador y la CPU reciben dos cartas. Una carta de la CPU estará oculta.",
-        "4.- Presiona PEDIR para recibir una carta o PLANTARSE para terminar tu turno.",
-        "5.- Si te pasas del objetivo, pierdes. Si no, gana quien tenga más puntos sin pasarse.",
-        "6.- Si los dos tienen los mismos puntos, es un empate."
+        "1.- El objetivo es acercarse al número objetivo elegido sin pasarse.",
+        "2.- Las cartas del 2 al 10 valen su número. J, Q y K valen 10. El As vale 1 0 11.",
+        "3.- El jugador y la CPU reciben dos cartas. Una de las 2 cartasde ambos estará oculta para el otro.",
+        "4.- Presiona Pedir para recibir una carta o Plantarse para terminar tu turno.",
+        "5.- Si te pasas del objetivo, pierdes. Si no, gana e que tenga más puntos sin exceder el objetivo.",
+        "6.- Si los dos tienen los mismos puntos, termina en un empate."
     )
 
     PantallaBase {
@@ -474,12 +474,12 @@ fun CartaGrafica(carta: Carta?, ancho: Dp = 65.dp, alto: Dp = 92.dp) {
                 Text(carta.palo, fontSize = tamanoNumero, color = colorCarta)
             }
 
-            Text(
-                carta.palo,
-                fontSize = tamanoPalo,
-                color = colorCarta,
-                modifier = Modifier.align(Alignment.Center)
-            )
+//            Text(
+//                carta.palo,
+//                fontSize = tamanoPalo,
+//                color = colorCarta,
+//                modifier = Modifier.align(Alignment.Center)
+//            )
 
             Row(
                 modifier = Modifier.align(Alignment.BottomEnd),

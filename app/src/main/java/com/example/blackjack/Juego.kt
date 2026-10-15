@@ -87,9 +87,9 @@ class Juego {
     }
 
     fun turnoCpu() {
-        val minimoCpu = objetivo - 4
+        val min = objetivo-4
 
-        while (calcularPuntos(cpu) < minimoCpu && mazo.isNotEmpty()) {
+        while (calcularPuntos(cpu) < min && mazo.isNotEmpty()) {
             cpu.add(sacarCarta())
         }
 

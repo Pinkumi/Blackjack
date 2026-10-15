@@ -8,10 +8,10 @@ class TinyDB(context: Context) {
     private val preferencias = context.getSharedPreferences("blackjack", Context.MODE_PRIVATE)
 
     fun guardarScores(nuevos: List<PartidaScore>) {
-        val todos = nuevos.reversed() + obtenerScores()
+        val scores = nuevos.reversed() + obtenerScores()
         val arreglo = JSONArray()
 
-        for (score in todos) {
+        for (score in scores) {
             val objeto = JSONObject()
             objeto.put("ganador", score.ganador)
             objeto.put("perdedor", score.perdedor)
@@ -35,7 +35,7 @@ class TinyDB(context: Context) {
     }
 
     fun obtenerScores(): List<PartidaScore> {
-        val lista = mutableListOf<PartidaScore>()
+        val parts = mutableListOf<PartidaScore>()
         val texto = preferencias.getString("scores", "[]")
         val arreglo = JSONArray(texto)
 
@@ -49,7 +49,7 @@ class TinyDB(context: Context) {
                 cartas.add(Carta(carta.getString("numero"), carta.getString("palo")))
             }
 
-            lista.add(PartidaScore(
+            parts.add(PartidaScore(
                 objeto.getString("ganador"),
                 objeto.getString("perdedor"),
                 objeto.getString("fecha"),
@@ -58,6 +58,6 @@ class TinyDB(context: Context) {
             ))
         }
 
-        return lista
+        return parts
     }
 }
